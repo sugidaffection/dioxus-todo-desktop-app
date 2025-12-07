@@ -48,7 +48,7 @@ pub fn Home() -> Element {
 }
 
 #[component]
-pub fn Input(tasks: Signal<Vec<Task>>) -> Element {
+fn Input(tasks: Signal<Vec<Task>>) -> Element {
     let mut new_title = use_signal(|| String::new());
     let mut new_tag = use_signal(|| "gameplay".to_string());
 
@@ -101,7 +101,7 @@ pub fn Input(tasks: Signal<Vec<Task>>) -> Element {
 }
 
 #[component]
-pub fn TaskList(tasks: Signal<Vec<Task>>) -> Element {
+fn TaskList(tasks: Signal<Vec<Task>>) -> Element {
     let tasks_read = tasks.read();
     rsx! {
             div {
@@ -114,7 +114,7 @@ pub fn TaskList(tasks: Signal<Vec<Task>>) -> Element {
 }
 
 #[component]
-pub fn TaskItem(task: Task, idx: usize, tasks: Signal<Vec<Task>>) -> Element {
+fn TaskItem(task: Task, idx: usize, tasks: Signal<Vec<Task>>) -> Element {
     let mut status = use_signal(|| task.status.clone());
     rsx! {
         div {
